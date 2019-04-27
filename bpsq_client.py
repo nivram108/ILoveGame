@@ -1,4 +1,6 @@
 import action_simulator.action_combination as action_combination
+import bpsq_mage
+import bpsq_bishop
 import time
 import random
 import socket
@@ -11,7 +13,7 @@ base_interval_move = 0.1 # try to move every interval_move second
 base_interval_buff = 180 # try to buff every interval_buff second
 base_interval_pee = 60
 key_cd = 0.1
-key_press_interval = 0.02
+key_press_interval = 0.2
 
 key_attack = 'space'
 key_dialog = 'd'
@@ -47,24 +49,27 @@ def client_program():
             move()
         elif data == 'out':
             leave()
+		elif data == 'start':
+			if name == 'sage666' or name == 'tmp666':
+				bpsq_mage.run()
+			elif name == 'marvin0318'
+				bpsq_bishop.run()
+				
         sys.stdout.flush()
         #message = input(" -> ")  # again take input
 
     client_socket.close()  # close the connection
     
-def heal():
-    action_combination.attack('d', key_press_interval)
 def move():
-    action_combination.move_with_skill((False), (False), 'left', key_movement_skill, 5)
-    action_combination.move_with_skill((False), (False), 'right', 'v', 1)
+    action_combination.move_with_skill('left', key_movement_skill, 5)
+    action_combination.move_with_skill('right', 'v', 1)
 def leave():
-
-    time.sleep(0.2)
-    action_combination.attack(key_dialog, key_press_interval)
-    time.sleep(0.2)
-    action_combination.attack('right', key_press_interval)
-    time.sleep(0.2)
-    action_combination.attack(key_dialog, key_press_interval)
+    time.sleep(key_press_interval)
+    action_combination.press_and_release(key_dialog)
+    time.sleep(key_press_interval)
+    action_combination.press_and_release('right')
+    time.sleep(key_press_interval)
+    action_combination.press_and_release(key_dialog)
 
 if __name__ == '__main__':
     print("run")

@@ -19,7 +19,16 @@ def jump():
 def move(direction, duration):
 	single_command.keep_pressing(direction, duration)
 	
-def move_with_skill(double_jump, jump_or_not, direction, movement_skill_key, duration):
+def move_with_skill(direction, movement_skill_key, duration):
+	for i in range(0, duration):
+		time.sleep(0.1)
+		single_command.press(movement_skill_key + ', ' + direction)
+		time.sleep(0.5)
+		single_command.press(movement_skill_key)
+		single_command.release(direction)
+		single_command.release(movement_skill_key)
+		single_command.release(movement_skill_key + ', ' + direction)	
+def move_with_skill_and_jump(double_jump, jump_or_not, direction, movement_skill_key, duration):
 	if jump_or_not:
 		duration = duration + 1
 	for i in range(0, duration):
