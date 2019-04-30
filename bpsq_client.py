@@ -1,6 +1,7 @@
 import action_simulator.action_combination as action_combination
 import bpsq_mage
 import bpsq_bishop
+import bpsq_idle
 import time
 import random
 import socket
@@ -55,6 +56,8 @@ def client_program():
 				bpsq_mage.run()
 			elif my_name == 'marvin0318':
 				bpsq_bishop.run()
+			else:
+				bpsq_idle.run()
 				
 		sys.stdout.flush()
 		#message = input(" -> ")  # again take input
