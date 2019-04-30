@@ -5,10 +5,11 @@ import time
 import random
 import socket
 import sys
+import account_name
 ## keep pressing space
 
 ## begin definition ##
-my_name = 'marvin0318'
+my_name = account_name.my_name
 base_interval_move = 0.1 # try to move every interval_move second
 base_interval_buff = 180 # try to buff every interval_buff second
 base_interval_pee = 60
