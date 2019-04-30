@@ -1,10 +1,10 @@
 import pyautogui
 import keyboard
 import time
-from threading import Timer
-
+import threading
+import sys
 ## begin define const
-
+enable = True
 const_keep_pressing_freq = 30  	# 30 input per second
 
 ## endof define const
@@ -31,15 +31,39 @@ def type_message(string):
 			press_and_release(character)
 			release('shift')
 
-			
+
+def keep_pressing_key(key):
+	global enable
+	while enable == True :
+		keyboard.press_and_release(key)
+		time.sleep(1.0 / const_keep_pressing_freq)
+	enable = True
+	#print('stop pressing')
+	#sys.stdout.flush()
+
+def stop_pressing_key():
+	global enable
+	enable = False
+	#print('disable')
+	#sys.stdout.flush()
 def keep_pressing(key, duration):
 	"""	Emulate pressing a key for a time 
 	"""
+	global enable
 	
-	dt = 0
-	while dt < duration :
-		time.sleep(1.0 / const_keep_pressing_freq)
-		dt = dt + (1.0 / const_keep_pressing_freq)
-		keyboard.press_and_release(key)
+	#enable = True
+	t = threading.Thread(target = keep_pressing_key, args = [key])
+	#print('START pressing')
+	#sys.stdout.flush()
+	t.start()
+	timer = threading.Timer(duration, stop_pressing_key)
+	timer.start()
+	time.sleep(duration)
+	#global enable
+	
+	#timer.cancel()
+	#t.join()
+	
+	
 
 	

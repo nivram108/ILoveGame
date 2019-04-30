@@ -21,7 +21,7 @@ def attack():
 	'''
 	global flag
 	while flag == True:
-		action_combination.attack(key_attack, 0.1)
+		action_combination.attack(key_attack, 0.06)
 		#print('go')
 		#flush()
 		#time.sleep(0.5)
@@ -48,6 +48,8 @@ def on_release(key):
 			sys.stdout.flush()
 		else:
 			flag = False
+			print('pause')
+			sys.stdout.flush()
 		
 
 # Collect events until released
