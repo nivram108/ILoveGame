@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 from matplotlib import pyplot as plt
-from . import screenshot_generator
+import screenshot_generator
 
 
 def bpsq_all_out():
