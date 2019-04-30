@@ -10,8 +10,8 @@ def screenshot():
 	hwnd = win32gui.FindWindow(None, windowname)
 	wDC = win32gui.GetWindowDC(hwnd)
 
-	w = 800
-	h = 676
+	w = 1200
+	h = 800
 	dcObj=win32ui.CreateDCFromHandle(wDC)
 	cDC=dcObj.CreateCompatibleDC()
 	dataBitMap = win32ui.CreateBitmap()
@@ -26,5 +26,5 @@ def screenshot():
 	win32gui.DeleteObject(dataBitMap.GetHandle())
 	#transfer to jpg
 
-	img = Image.open('A:/sort_art_online/src/screenshot.bmp')
-	img.save('A:/sort_art_online/src/screenshot.jpg', 'jpeg')
+	img = Image.open('./src/screenshot.bmp')
+	img.save('./src/screenshot.jpg', 'jpeg')
