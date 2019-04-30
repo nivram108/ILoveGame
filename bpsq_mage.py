@@ -22,7 +22,7 @@ def run():
 	action_combination.attack('space', 20)
 	print('strom done')
 	sys.stdout.flush()
-	for x in range(0, 5):
+	for x in range(0, 4):
 		print('loop : ' + str(x))
 		sys.stdout.flush()
 		action_combination.move_with_skill('left', key_movement_skill, 2)

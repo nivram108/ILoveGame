@@ -82,7 +82,7 @@ def server_program():
 		sys.stdout.flush()
 		action_combination.move_with_skill('right', key_movement_skill, 1)
 		action_combination.attack('c', 25)
-		for x in range(0, 6):
+		for x in range(0, 5):
 			action_combination.attack('c', 10)
 			action_combination.move_with_skill('left', key_movement_skill, 2)
 			action_combination.move_with_skill('right', key_movement_skill, 1)

@@ -15,7 +15,7 @@ base_interval_move = 0.1 # try to move every interval_move second
 base_interval_buff = 180 # try to buff every interval_buff second
 base_interval_pee = 60
 key_cd = 0.1
-key_press_interval = 0.2
+key_press_interval = 1
 
 key_attack = 'space'
 key_dialog = 'd'

@@ -20,7 +20,7 @@ class_type = "bishop"
 def run():
 	print('bishop run')
 	sys.stdout.flush()
-	for x in range(0, 6):
+	for x in range(0, 5):
 		print('loop : ' + str(x))
 		sys.stdout.flush()
 		action_combination.attack(key_purify, 10)
