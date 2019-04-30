@@ -3,9 +3,13 @@ import sys
 import action_simulator.action_combination as action_combination
 import bpsq_mage
 import bpsq_bishop
+import time
+import image_comp.object_locator as object_locator
 
 key_dialog = 'd'
-key_press_interval = 0.2
+key_movement_skill = 'shift'
+key_press_interval = 1
+time_delay = 5
 MAX_CLIENT_COUNT = 10
 conn_list = []# = {}
 address_list = []# = {}
@@ -54,28 +58,176 @@ def server_program():
 #			break
 		#print("from connected user: " + str(data))
 		#sys.stdout.flush()
+		#leave all
 		
 		#enter
+		print('enter')
+		sys.stdout.flush()
 		enter_bpsq()
-		time.sleep(2)
+		
+		#check in
+		while object_locator.in_bpsq() == False:
+			#busy
+			continue
 		
 		#run all
+		print('start')
+		sys.stdout.flush()
 		data = 'start'
 		for x in range(0, client_count):
 			conn_list[x].send(data.encode())
 			
 		#run self
-		bpsq_mage.run()
+		print('run')
+		sys.stdout.flush()
+		action_combination.move_with_skill('right', key_movement_skill, 1)
+		action_combination.attack('c', 25)
+		for x in range(0, 6):
+			action_combination.attack('c', 10)
+			action_combination.move_with_skill('left', key_movement_skill, 2)
+			action_combination.move_with_skill('right', key_movement_skill, 1)
 		
-		#leave all
+		
+		print('out')
+		sys.stdout.flush()
 		data = 'outt'
 		for x in range(0, client_count):
 			conn_list[x].send(data.encode())
 		
 		#leave self
+		print('self leave')
+		sys.stdout.flush()
 		move()
 		leave()
-		time.sleep(3)
+		
+		time.sleep(10)
+		if object_locator.at_fm() == False:
+			# self crash or not exit, try exit again
+			print('self leave again')
+			sys.stdout.flush()
+			move()
+			leave()
+			time.sleep(10)
+			
+			if object_locator.at_fm() == False:
+				data = input(' something went wrong ')
+				print('3...')
+				sys.stdout.flush()
+				time.sleep(1)
+				print('2...')
+				sys.stdout.flush()
+				time.sleep(1)
+				print('1...')
+				sys.stdout.flush()
+				time.sleep(1)
+			elif object_locator.bpsq_all_out() == False:
+				#someone not exit
+				time_intergrate = 0
+				if object_locator.absent_hchs0001() == False:
+					time.sleep(2.5)
+					time_intergrate = time_intergrate + 2.5
+					data = 'hchs0001'
+					print(data)
+					for x in range(0, client_count):
+						conn_list[x].send(data.encode())
+						
+				if object_locator.absent_hchs0002() == False:
+					time.sleep(2.5)
+					time_intergrate = time_intergrate + 2.5
+					data = 'hchs0002'
+					print(data)
+					for x in range(0, client_count):
+						conn_list[x].send(data.encode())
+						
+				if object_locator.absent_tmp666() == False:
+					time.sleep(2.5)
+					time_intergrate = time_intergrate + 2.5
+					data = 'tmp666'
+					print(data)
+					for x in range(0, client_count):
+						conn_list[x].send(data.encode())
+						
+				if object_locator.absent_ctb666() == False:
+					time.sleep(2.5)
+					time_intergrate = time_intergrate + 2.5
+					data = 'ctb666'
+					print(data)
+					for x in range(0, client_count):
+						conn_list[x].send(data.encode())
+						
+				if object_locator.absent_marvin0318() == False:
+					time.sleep(2.5)
+					time_intergrate = time_intergrate + 2.5
+					data = 'marvin0318'
+					print(data)
+					for x in range(0, client_count):
+						conn_list[x].send(data.encode())
+				time.sleep(10 + time_intergrate)
+				if object_locator.bpsq_all_out() == False:
+					data = input(' something went wrong ')
+					print('3...')
+					sys.stdout.flush()
+					time.sleep(1)
+					print('2...')
+					sys.stdout.flush()
+					time.sleep(1)
+					print('1...')
+					sys.stdout.flush()
+					time.sleep(1)
+		elif object_locator.bpsq_all_out() == False:
+			#someone not exit
+			time_intergrate = 0
+			if object_locator.absent_hchs0001() == False:
+				time.sleep(2.5)
+				time_intergrate = time_intergrate + 2.5
+				data = 'hchs0001'
+				print(data)
+				for x in range(0, client_count):
+					conn_list[x].send(data.encode())
+					
+			if object_locator.absent_hchs0002() == False:
+				time.sleep(2.5)
+				time_intergrate = time_intergrate + 2.5
+				data = 'hchs0002'
+				print(data)
+				for x in range(0, client_count):
+					conn_list[x].send(data.encode())
+					
+			if object_locator.absent_tmp666() == False:
+				time.sleep(2.5)
+				time_intergrate = time_intergrate + 2.5
+				data = 'tmp666'
+				print(data)
+				for x in range(0, client_count):
+					conn_list[x].send(data.encode())
+						
+			if object_locator.absent_ctb666() == False:
+				time.sleep(2.5)
+				time_intergrate = time_intergrate + 2.5
+				data = 'ctb666'
+				print(data)
+				for x in range(0, client_count):
+					conn_list[x].send(data.encode())
+					
+			if object_locator.absent_marvin0318() == False:
+				time.sleep(2.5)
+				time_intergrate = time_intergrate + 2.5
+				data = 'marvin0318'
+				print(data)
+				for x in range(0, client_count):
+					conn_list[x].send(data.encode())
+			time.sleep(10 + time_intergrate)
+			if object_locator.bpsq_all_out() == False:
+				data = input(' something went wrong ')
+				print('3...')
+				sys.stdout.flush()
+				time.sleep(1)
+				print('2...')
+				sys.stdout.flush()
+				time.sleep(1)
+				print('1...')
+				sys.stdout.flush()
+				time.sleep(1)
 		
 	print("EXIT")
 	sys.stdout.flush()
@@ -84,26 +236,22 @@ def server_program():
 		
 def enter_bpsq():
 	time.sleep(key_press_interval)
-    action_combination.press_and_release(key_dialog)
-    time.sleep(key_press_interval)
-    action_combination.press_and_release('down')
-    time.sleep(key_press_interval)
+	action_combination.press_and_release(key_dialog)
+	time.sleep(time_delay)
 	action_combination.press_and_release('down')
-    time.sleep(key_press_interval)
-	action_combination.press_and_release('down')
-    time.sleep(key_press_interval)
-    action_combination.press_and_release(key_dialog)
+	time.sleep(key_press_interval)
+	action_combination.press_and_release(key_dialog)
 	
 def move():
-    action_combination.move_with_skill('left', key_movement_skill, 5)
-    action_combination.move_with_skill('right', 'v', 1)	
+	action_combination.move_with_skill('left', key_movement_skill, 5)
+	action_combination.move_with_skill('right', 'v', 1)	
 def leave():
-    time.sleep(key_press_interval)
-    action_combination.press_and_release(key_dialog)
-    time.sleep(key_press_interval)
-    action_combination.press_and_release('right')
-    time.sleep(key_press_interval)
-    action_combination.press_and_release(key_dialog)
+	time.sleep(key_press_interval)
+	action_combination.press_and_release(key_dialog)
+	time.sleep(key_press_interval)
+	action_combination.press_and_release('right')
+	time.sleep(key_press_interval)
+	action_combination.press_and_release(key_dialog)
 	
 if __name__ == '__main__':
 	server_program()

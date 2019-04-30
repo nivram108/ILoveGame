@@ -1,7 +1,183 @@
 import cv2 as cv
 import numpy as np
 from matplotlib import pyplot as plt
-import screenshot_generator
+from . import screenshot_generator
+
+
+def bpsq_all_out():
+	screenshot_generator.screenshot()
+	
+	img_rgb = cv.imread('./src/screenshot.jpg')
+	img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
+	template = cv.imread('./src/all_out.jpg',0)
+	w, h = template.shape[::-1]
+	#w2, h2 = template.shape[::-1]
+	res = cv.matchTemplate(img_gray,template,cv.TM_CCOEFF_NORMED)
+	#res2 = cv.matchTemplate(img_gray,template2,cv.TM_CCOEFF_NORMED)
+	threshold = 0.9
+	#print(res)
+	loc = np.where( res >= threshold)
+	#loc2 = np.where( res2 >= 0.6)
+
+
+	for pt in zip(*loc[::-1]):
+		cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+		#print (pt[0], pt[1])
+		return True
+	return False
+	#for pt in zip(*loc2[::-1]):
+	#	cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+	#	print pt[0], pt[1]
+	#	
+def in_bpsq():
+	screenshot_generator.screenshot()
+	
+	img_rgb = cv.imread('./src/screenshot.jpg')
+	img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
+	template = cv.imread('./src/in_bpsq.jpg',0)
+	w, h = template.shape[::-1]
+	#w2, h2 = template.shape[::-1]
+	res = cv.matchTemplate(img_gray,template,cv.TM_CCOEFF_NORMED)
+	#res2 = cv.matchTemplate(img_gray,template2,cv.TM_CCOEFF_NORMED)
+	threshold = 0.9
+	#print(res)
+	loc = np.where( res >= threshold)
+	#loc2 = np.where( res2 >= 0.6)
+
+
+	for pt in zip(*loc[::-1]):
+		cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+		#print (pt[0], pt[1])
+		return True
+	return False
+	
+def at_fm():
+	screenshot_generator.screenshot()
+	
+	img_rgb = cv.imread('./src/screenshot.jpg')
+	img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
+	template = cv.imread('./src/at_fm.jpg',0)
+	w, h = template.shape[::-1]
+	#w2, h2 = template.shape[::-1]
+	res = cv.matchTemplate(img_gray,template,cv.TM_CCOEFF_NORMED)
+	#res2 = cv.matchTemplate(img_gray,template2,cv.TM_CCOEFF_NORMED)
+	threshold = 0.9
+	#print(res)
+	loc = np.where( res >= threshold)
+	#loc2 = np.where( res2 >= 0.6)
+
+
+	for pt in zip(*loc[::-1]):
+		cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+		#print (pt[0], pt[1])
+		return True
+	return False
+	
+def absent_hchs0001():
+	screenshot_generator.screenshot()
+	
+	img_rgb = cv.imread('./src/screenshot.jpg')
+	img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
+	template = cv.imread('./src/hchs0001.jpg',0)
+	w, h = template.shape[::-1]
+	#w2, h2 = template.shape[::-1]
+	res = cv.matchTemplate(img_gray,template,cv.TM_CCOEFF_NORMED)
+	#res2 = cv.matchTemplate(img_gray,template2,cv.TM_CCOEFF_NORMED)
+	threshold = 0.99
+	#print(res)
+	loc = np.where( res >= threshold)
+	#loc2 = np.where( res2 >= 0.6)
+
+	for pt in zip(*loc[::-1]):
+		cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+		#print (pt[0], pt[1])
+		return True
+	return False
+	
+def absent_hchs0002():
+	screenshot_generator.screenshot()
+	
+	img_rgb = cv.imread('./src/screenshot.jpg')
+	img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
+	template = cv.imread('./src/hchs0002.jpg',0)
+	w, h = template.shape[::-1]
+	#w2, h2 = template.shape[::-1]
+	res = cv.matchTemplate(img_gray,template,cv.TM_CCOEFF_NORMED)
+	#res2 = cv.matchTemplate(img_gray,template2,cv.TM_CCOEFF_NORMED)
+	threshold = 0.99
+	#print(res)
+	loc = np.where( res >= threshold)
+	#loc2 = np.where( res2 >= 0.6)
+
+	for pt in zip(*loc[::-1]):
+		cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+		#print (pt[0], pt[1])
+		return True
+	return False
+
+def absent_tmp666():
+	screenshot_generator.screenshot()
+	
+	img_rgb = cv.imread('./src/screenshot.jpg')
+	img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
+	template = cv.imread('./src/tmp666.jpg',0)
+	w, h = template.shape[::-1]
+	#w2, h2 = template.shape[::-1]
+	res = cv.matchTemplate(img_gray,template,cv.TM_CCOEFF_NORMED)
+	#res2 = cv.matchTemplate(img_gray,template2,cv.TM_CCOEFF_NORMED)
+	threshold = 0.99
+	#print(res)
+	loc = np.where( res >= threshold)
+	#loc2 = np.where( res2 >= 0.6)
+
+	for pt in zip(*loc[::-1]):
+		cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+		#print (pt[0], pt[1])
+		return True
+	return False
+	
+def absent_ctb666():
+	screenshot_generator.screenshot()
+	
+	img_rgb = cv.imread('./src/screenshot.jpg')
+	img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
+	template = cv.imread('./src/ctb666.jpg',0)
+	w, h = template.shape[::-1]
+	#w2, h2 = template.shape[::-1]
+	res = cv.matchTemplate(img_gray,template,cv.TM_CCOEFF_NORMED)
+	#res2 = cv.matchTemplate(img_gray,template2,cv.TM_CCOEFF_NORMED)
+	threshold = 0.99
+	#print(res)
+	loc = np.where( res >= threshold)
+	#loc2 = np.where( res2 >= 0.6)
+
+	for pt in zip(*loc[::-1]):
+		cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+		#print (pt[0], pt[1])
+		return True
+	return False
+	
+def absent_marvin0318():
+	screenshot_generator.screenshot()
+	
+	img_rgb = cv.imread('./src/screenshot.jpg')
+	img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
+	template = cv.imread('./src/marvin0318.jpg',0)
+	w, h = template.shape[::-1]
+	#w2, h2 = template.shape[::-1]
+	res = cv.matchTemplate(img_gray,template,cv.TM_CCOEFF_NORMED)
+	#res2 = cv.matchTemplate(img_gray,template2,cv.TM_CCOEFF_NORMED)
+	threshold = 0.99
+	#print(res)
+	loc = np.where( res >= threshold)
+	#loc2 = np.where( res2 >= 0.6)
+
+	for pt in zip(*loc[::-1]):
+		cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+		#print (pt[0], pt[1])
+		return True
+	return False
+
 
 def emergency_detector():
 	screenshot_generator.screenshot()
@@ -21,7 +197,7 @@ def emergency_detector():
 
 	for pt in zip(*loc[::-1]):
 		cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
-		print pt[0], pt[1]
+		#print pt[0], pt[1]
 		return True
 	return False
 	#for pt in zip(*loc2[::-1]):
@@ -47,7 +223,7 @@ def lamp_detector():
 
 	for pt in zip(*lamp_loc[::-1]):
 		cv.rectangle(img_rgb, pt, (pt[0] + lamp_w, pt[1] + lamp_h), (0,0,255), 2)
-		print pt[0], pt[1]
+		#print pt[0], pt[1]
 		return True
 	return False
 
