@@ -1,6 +1,7 @@
 import action_simulator.action_combination as action_combination
 import time
 import random
+import sys
 ## keep pressing space
 
 ## begin definition ##
@@ -15,5 +16,22 @@ key_movement_skill = 'shift'
 class_type = "MAGE"
 ## endof definition## 
 def run():
+	print('mage run')
+	time.sleep(1)
 	action_combination.move_with_skill('right', key_movement_skill, 1)
-	action_combination.attack(key_attack, 90)
+	action_combination.attack('space', 20)
+	print('strom done')
+	sys.stdout.flush()
+	for x in range(0, 5):
+		print('loop : ' + str(x))
+		sys.stdout.flush()
+		action_combination.move_with_skill('left', key_movement_skill, 2)
+		action_combination.move_with_skill('right', key_movement_skill, 1)
+		action_combination.attack('c', 10)
+	action_combination.attack('c', 5)
+	#action_combination.attack('c', 60)
+	action_combination.press_and_release('f')
+	action_combination.press_and_release('f')
+	time.sleep(0.5)
+	action_combination.attack('t', 2)
+	print('mage exit')
