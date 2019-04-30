@@ -1,4 +1,4 @@
-import single_command
+from . import single_command
 import keyboard
 import time
 import pyautogui
