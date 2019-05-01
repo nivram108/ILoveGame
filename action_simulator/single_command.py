@@ -37,28 +37,36 @@ def keep_pressing_key(key):
 	while enable == True :
 		keyboard.press_and_release(key)
 		time.sleep(1.0 / const_keep_pressing_freq)
-	enable = True
+	
 	#print('stop pressing')
 	#sys.stdout.flush()
 
-def stop_pressing_key():
+def set_disable_press():
 	global enable
 	enable = False
 	#print('disable')
 	#sys.stdout.flush()
+
+def set_enable_press():
+	global enable
+	enable = True	
+
 def keep_pressing(key, duration):
 	"""	Emulate pressing a key for a time 
 	"""
 	global enable
-	
+	if enable == False:
+		return
 	#enable = True
 	t = threading.Thread(target = keep_pressing_key, args = [key])
 	#print('START pressing')
 	#sys.stdout.flush()
 	t.start()
-	timer = threading.Timer(duration, stop_pressing_key)
+	timer = threading.Timer(duration, set_disable_press)
 	timer.start()
 	time.sleep(duration)
+	enable = True
+	#stop_pressing_key()
 	#global enable
 	
 	#timer.cancel()

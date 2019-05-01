@@ -50,6 +50,10 @@ def move_with_skill_and_jump(double_jump, jump_or_not, direction, movement_skill
 def attack(attack_key, duration):
 	single_command.keep_pressing(attack_key, duration)
 	
+def set_disable_press():
+	single_command.set_disable_press()
+def set_enable_press():
+	single_command.set_enable_press()
 def buff(buff_key):
 	single_command.press_and_release(buff_key)
 	time.sleep(3)

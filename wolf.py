@@ -1,4 +1,4 @@
-from pynput.keyboard import Key, Listener, Controller
+from pynput.keyboard import Key, Listener, Controller, KeyCode
 import action_simulator.action_combination as action_combination
 import time
 import random
@@ -21,7 +21,7 @@ def attack():
 	'''
 	global flag
 	while flag == True:
-		action_combination.attack(key_attack, 0.06)
+		action_combination.attack(key_attack, 1/30)
 		#print('go')
 		#flush()
 		#time.sleep(0.5)
@@ -30,9 +30,12 @@ def attack():
 	#keyboard.press_and_release(Key.space)
 	#flag = True
 	
-def on_press(key):
-	x = 1
-def on_release(key):
+def on_press_attack(key):
+	global flag 
+	if key == Key.tab or key == Key.left or key == Key.right or key == KeyCode('x'):
+		action_combination.set_disable_press()
+		flag = False
+def on_release_attack(key):
 	global flag 
 	if key == Key.num_lock :
 		print('EXIT')
@@ -42,19 +45,22 @@ def on_release(key):
 	elif key == Key.caps_lock:
 		if flag == False:
 			flag = True
+			action_combination.set_enable_press()
 			t = threading.Thread(target = attack)
 			t.start()
-			print('bingo')
+			print('>>>>>>>>>>start')
 			sys.stdout.flush()
 		else:
 			flag = False
-			print('pause')
+			print('-----------------------------------------------------------------------------------------------')
+			print('pause------------------------------------------------------------------------------------------')
+			print('-----------------------------------------------------------------------------------------------')
 			sys.stdout.flush()
-		
+			action_combination.set_disable_press()
 
 # Collect events until released
 with Listener(
-		on_press=on_press,
-		on_release=on_release) as listener:
-	listener.join()
+		on_press=on_press_attack,
+		on_release=on_release_attack) as listener_attack:
+	listener_attack.join()
 	
