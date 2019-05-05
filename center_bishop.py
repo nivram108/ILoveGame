@@ -8,7 +8,7 @@ key_attack = 'space'
 press_interval = 0.03
 keyboard = Controller()
 flag = False
-cycle = 90
+cycle = 110
 sleep = 55
 cool_down = 0.25
 def flush():
@@ -21,20 +21,28 @@ def attack():
 		flush
 		counter = counter + 1
 	'''
+	time.sleep(2)
+	action_combination.press_and_release('t')
+	time.sleep(3)
+	action_combination.press_and_release('y')
 	global flag
 	counter = 0
 	while flag == True:
-		counter = counter + cool_down
 		#action_combination.attack(key_attack, 1/30)
 		if counter > cycle:
 			#break
 			counter = 0
+			time.sleep(5)
 			action_combination.press_and_release('t')
-			time.sleep(2)
+			time.sleep(3)
 			action_combination.press_and_release('y')
 		else:
 			action_combination.press_and_release(key_attack)
 			time.sleep(cool_down)
+		counter = counter + cool_down
+		print(counter)
+		sys.stdout.flush()
+		
 		#print('go')
 		#flush()
 		#time.sleep(0.5)
@@ -55,7 +63,7 @@ def on_release_attack(key):
 		sys.stdout.flush()
 		# Stop listener
 		return False
-	elif key == Key.shift_r:
+	elif key == Key.ctrl_r:
 		if flag == False:
 			flag = True
 			action_combination.set_enable_press()
