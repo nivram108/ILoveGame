@@ -40,8 +40,8 @@ def attack():
 			action_combination.press_and_release(key_attack)
 			time.sleep(cool_down)
 		counter = counter + cool_down
-		print(counter)
-		sys.stdout.flush()
+		#print(counter)
+		#ds`sys.stdout.flush()
 		
 		#print('go')
 		#flush()

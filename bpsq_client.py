@@ -68,6 +68,7 @@ def move():
 	action_combination.move_with_skill('left', key_movement_skill, 5)
 	action_combination.move_with_skill('right', 'v', 1)
 def leave():
+	time.sleep(random.uniform(0, 2.5))
 	time.sleep(key_press_interval)
 	action_combination.press_and_release(key_dialog)
 	time.sleep(key_press_interval)
