@@ -28,10 +28,10 @@ class_type = 'marvin0318'
 
 def client_program():
 	print(socket.gethostname())
-	#host = '10.0.0.164'
+	host = '10.0.0.46'
 	#host = '192.168.91.1'
 	#host = '127.0.0.1'
-	host = socket.gethostname()
+	#host = socket.gethostname()
 	port = 5010# socket server port number
 	#client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # instantiate
 	client_socket = socket.socket()  # instantiate
