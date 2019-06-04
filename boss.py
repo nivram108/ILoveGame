@@ -61,36 +61,37 @@ def on_release_attack(key):
 	elif key == Key.f9:
 		escape()
 	elif key == Key.page_down:
-		if counter == 4 - 4 :
-			escape()
-			ctypes.windll.user32.SetCursorPos(xx[2],yy[2])
-			click()
-			counter = counter + 1
-		elif counter == 5 - 4 :
-			escape()
-			ctypes.windll.user32.SetCursorPos(xx[3],yy[3])
-			click()
-			counter = counter + 1
-		elif counter == 6 - 4 :
-			escape()
-			ctypes.windll.user32.SetCursorPos(xx[4],yy[4])
-			click()
-			counter = counter + 1
-		elif counter == 7 - 4 :
-			escape()
-			ctypes.windll.user32.SetCursorPos(xx[5],yy[5])
-			click()
-			counter = counter + 1
-		elif counter == 8 - 4 :
-			escape()
-			ctypes.windll.user32.SetCursorPos(xx[6],yy[6])
-			click()
-			counter = counter + 1
-		elif counter == 9 - 4 :
-			escape()
-			ctypes.windll.user32.SetCursorPos(xx[7],yy[7])
-			click()
-			counter = 0
+		if xx[1] > 0 :
+			if counter == 4 - 4 :
+				escape()
+				ctypes.windll.user32.SetCursorPos(xx[2],yy[2])
+				click()
+				counter = counter + 1
+			elif counter == 5 - 4 :
+				escape()
+				ctypes.windll.user32.SetCursorPos(xx[3],yy[3])
+				click()
+				counter = counter + 1
+			elif counter == 6 - 4 :
+				escape()
+				ctypes.windll.user32.SetCursorPos(xx[4],yy[4])
+				click()
+				counter = counter + 1
+			elif counter == 7 - 4 :
+				escape()
+				ctypes.windll.user32.SetCursorPos(xx[5],yy[5])
+				click()
+				counter = counter + 1
+			elif counter == 8 - 4 :
+				escape()
+				ctypes.windll.user32.SetCursorPos(xx[6],yy[6])
+				click()
+				counter = counter + 1
+			elif counter == 9 - 4 :
+				escape()
+				ctypes.windll.user32.SetCursorPos(xx[7],yy[7])
+				click()
+				counter = 0
 		
 	elif key == Key.f2:
 		load()
