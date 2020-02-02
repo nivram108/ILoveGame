@@ -6,11 +6,9 @@ import time
 import random
 import socket
 import sys
-import account_name
 ## keep pressing space
 
 ## begin definition ##
-my_name = account_name.my_name
 base_interval_move = 0.1 # try to move every interval_move second
 base_interval_buff = 180 # try to buff every interval_buff second
 base_interval_pee = 60
@@ -23,8 +21,8 @@ key_buff = 't'
 key_movement_skill = 'shift'
 
 class_type = 'marvin0318'
-## endof definition## 
-	
+## endof definition##
+
 
 def client_program():
 	print(socket.gethostname())
@@ -50,7 +48,7 @@ def client_program():
 			move()
 			leave()
 	client_socket.close()  # close the connection
-	
+
 def move():
 	action_combination.move_with_skill('left', key_movement_skill, 5)
 	action_combination.move_with_skill('right', 'v', 1)
